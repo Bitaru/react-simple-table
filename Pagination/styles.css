@@ -1,0 +1,13 @@
+.pagination {
+  margin-bottom: 7px;
+  .button {
+    min-width: 3.42rem;
+    border-radius: 50%;
+    height: 3.42rem;
+    margin: 0 3px;
+
+    [data-react-toolbox="ripple"] {
+      border-radius: 50%;
+    }
+  }
+}

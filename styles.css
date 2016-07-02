@@ -1,0 +1,230 @@
+@import "variables";
+
+.wrap {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease-in;
+  &.loading {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.total {
+  font-size: 1.2rem;
+}
+
+.table {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow:
+    0 1px 3px rgba(#000, 0.04),
+    0 1px 2px rgba(#000, 0.03);
+}
+
+.footerFow {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  background: color($table-color);
+}
+
+.headerCell {
+  padding: 15px;
+  text-align: center;
+  white-space: nowrap;
+  color: $brand-dark;
+  cursor: default;
+  background: color($table-color a(90%));
+  border-bottom: 1px solid color($table-color shade(10%));
+  font-weight: 700;
+
+  &:first-child {
+    border-top-left-radius: 3px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 3px;
+  }
+
+  &:before {
+    border-color: color($table-color shade(10%));
+  }
+  &.sortable{
+    cursor: ns-resize;
+  }
+  svg{
+    display: inline-block;
+    vertical-align: -1px;
+    fill: $brand-success;
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-left: .5rem;
+  }
+}
+
+.cell {
+  border-bottom: 1px solid color($border-color);
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background: white;
+
+  &:first-child {
+    border-left: 1px solid color($border-color);
+  }
+
+  &:last-child {
+    border-right: 1px solid color($border-color);
+  }
+  /* This is for React-Toolbox checkboxes */
+  label{
+    margin: 0!important;
+    text-align: center;
+  }
+}
+
+.cell,
+.headerCell {
+  position: relative;
+  white-space: nowrap;
+  &:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    border-right: 1px dashed color($border-color a(90%));
+  }
+  &:first-child {
+    position: static;
+    &:before {
+      display: none;
+    }
+  }
+}
+
+
+.row {
+  position: relative;
+  &:nth-child(2n) .cell {
+    background: color($background);
+  }
+  &:last-child .cell {
+    &:first-child {
+      border-bottom-left-radius: 3px;
+    }
+    &:last-child {
+      border-bottom-right-radius: 3px;
+    }
+  }
+}
+
+
+/* Theming colummns */
+.preview{
+  width: 50px;
+  text-align: center;
+  & > div{
+    width: 50px;
+    height: 50px;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: 2px solid color($border-color);
+  }
+}
+
+.withIcon{
+  font-weight: bold;
+  svg{
+    width: 18px;
+    height: 18px;
+    vertical-align: -5px;
+    padding-right: .3rem;
+  }
+}
+
+.fit, .nonRelative{
+  width: 1%;
+  white-space: nowrap;
+}
+
+.nonRelative{
+  position: inherit!important;
+}
+
+.position, .public{
+  width: 40px;
+  text-align: center;
+}
+
+.hidden{
+  display: none;
+}
+
+.bold{
+  font-weight: 600;
+}
+
+.center{
+  text-align: center;
+}
+
+.indicator {
+  text-align: center;
+  span{
+    display: inline-block;
+    vertical-align: middle;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid white;
+    background: $brand-gray;
+  }
+}
+
+.status{
+  display: inline-block;
+  vertical-align: middle;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid white;
+  background: $brand-gray;
+}
+
+.activeStatus{
+  background: $brand-success;
+}
+
+.badge{
+  text-align: center;
+  white-space: nowrap;
+  span{
+    border-radius: 15px / 17px;
+    color: white;
+    font-size: 1rem;
+    line-height: 17px;
+    padding: 0.2rem 0.7rem;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
+
+.full{
+  width: 100%;
+}
+
+.wrapText{
+  white-space: normal;
+}
